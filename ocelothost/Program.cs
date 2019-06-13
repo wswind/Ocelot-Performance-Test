@@ -19,7 +19,15 @@ namespace ocelothost
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .UseUrls("htpp://*:8001");
+                 .ConfigureAppConfiguration((hostingContext, config) =>
+                 {
+                     config
+                         .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
+                         .AddJsonFile("appsettings.json", true, true)
+                         .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
+                         .AddJsonFile("ocelot.json") // or use ".AddOcelot(hostingContext.HostingEnvironment)" to look for pattern json file
+                         .AddEnvironmentVariables();
+                 })
+                .UseStartup<Startup>();
     }
 }
