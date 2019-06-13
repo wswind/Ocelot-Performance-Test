@@ -27,7 +27,21 @@ http://localhost:5000/api1/values -> http://localhost:5001/api/values
 
 http://localhost:5000/api2/values -> http://localhost:5002/api/values
 
-then use [wrk](<https://github.com/wg/wrk>) to test this. you can build it with wsl 
+then use [wrk](<https://github.com/wg/wrk/releases>) to test this. you can build it with wsl  ubuntu. 
+
+ if there is build error
+
+```
+Syntax error: "(" unexpected
+```
+
+configure dash
+
+```
+sudo dpkg-reconfigure dash #use no to build
+```
+
+use wrk to test
 
 ```
 wrk -t12 -c400 -d30s  http://localhost:5001/api/values
@@ -35,8 +49,4 @@ wrk -t12 -c400 -d30s  http://localhost:5000/api1/values
 
 wrk -t12 -c400 -d30s  http://localhost:5002/api/values
 wrk -t12 -c400 -d30s  http://localhost:5000/api2/values
-
 ```
-
-
-
