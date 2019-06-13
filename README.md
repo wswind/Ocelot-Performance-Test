@@ -12,7 +12,7 @@ use powershell to run all projects:
 ./run-all.ps1
 ```
 
-you may want to set powershell executionpolicy
+you may want to set powershell execution policy
 
 ```
 Set-ExecutionPolicy -Scope CurrentUser remotesigned
