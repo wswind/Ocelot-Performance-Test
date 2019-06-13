@@ -1,4 +1,4 @@
-# OcelotPerformanceTest
+# Ocelot Performance Test
 
 this is a demo to test ocelot performance.
 
