@@ -94,3 +94,4 @@ Time per request:       3.799 [ms] (mean)
 Time per request:       0.380 [ms] (mean, across all concurrent requests)
 Transfer rate:          457.53 [Kbytes/sec] received
 ```
+Test results vary according to machine environment.
