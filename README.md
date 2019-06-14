@@ -2,7 +2,7 @@
 
 this is a demo to test ocelot performance.
 
-use .net core 2.2 sdk and windows 10 1809 with wsl ubuntu
+use .net core 2.2 sdk and windows 10 1809+ with wsl ubuntu
 
 inspired by:
 <https://www.cnblogs.com/savorboard/p/wrk.html>
