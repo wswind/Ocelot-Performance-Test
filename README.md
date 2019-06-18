@@ -5,6 +5,7 @@ this is a demo to test ocelot performance.
 use .net core 2.2 sdk and windows 10 1809+ with wsl ubuntu
 
 inspired by:
+
 <https://www.cnblogs.com/savorboard/p/wrk.html>
 
 
@@ -14,16 +15,18 @@ inspired by:
 ./run-all.ps1
 ```
 
-you may want to set powershell execution policy
+you may need to set powershell execution policy first
 
 ```
 Set-ExecutionPolicy -Scope CurrentUser remotesigned
 ```
-| ip             | discription |
+
+| url             | discription |
 | -------------- | ------ |
 | localhost:5000 | ocelot |
 | localhost:5001 | api1 |
 | localhost:5002 | api2 |
+
 
 http://localhost:5000/api1/values -> http://localhost:5001/api/values
 
@@ -33,14 +36,14 @@ http://localhost:5000/api2/values -> http://localhost:5002/api/values
 
 ## use ab to test
 
-use wsl ubuntu to test
+open ubuntu wsl to install ab
 
-install ab
 ```
 sudo apt-get install apache2-utils
 ```
 
 test the performance
+
 ```
 ab -n 100000 -c 10 http://localhost:5001/api/values
 
