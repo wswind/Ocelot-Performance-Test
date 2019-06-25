@@ -25,7 +25,7 @@ namespace ocelothost
                          .SetBasePath(hostingContext.HostingEnvironment.ContentRootPath)
                          .AddJsonFile("appsettings.json", true, true)
                          .AddJsonFile($"appsettings.{hostingContext.HostingEnvironment.EnvironmentName}.json", true, true)
-                         .AddJsonFile("ocelot.json") // or use ".AddOcelot(hostingContext.HostingEnvironment)" to look for pattern json file
+                         .AddJsonFile("ocelot.json") // or use ".AddOcelot(hostingContext.HostingEnvironment)" to look for pattern json file https://ocelot.readthedocs.io/en/latest/features/configuration.html
                          .AddEnvironmentVariables();
                  })
                 .UseStartup<Startup>();
