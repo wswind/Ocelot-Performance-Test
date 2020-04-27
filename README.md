@@ -24,7 +24,13 @@ server {
     }
 ```
 
-set centos file limits
+
+
+
+Debian wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
+
+set linux(centos) open file limits
+
 ```
 ulimit -n 65535
 
@@ -33,12 +39,6 @@ ulimit -n 65535
 * soft nofile 65535
 * hard nofile 65535
 ```
-
-
-
-Debian wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
-
-I still use windows to host all the services
 
 
 inspired by:
@@ -206,8 +206,9 @@ Percentage of the requests served within a certain time (ms)
  100%   3057 (longest request)
 
 ```
+The test at first time would be a little slow. So It is not included in the test results.
 
-Test results vary according to machine environment.
+Test results varies according to machine environment
 
 
 
