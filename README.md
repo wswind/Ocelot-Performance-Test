@@ -206,7 +206,7 @@ Percentage of the requests served within a certain time (ms)
  100%   3057 (longest request)
 
 ```
-The test at first time would be a little slow. So It is not included in the test results.
+The ab test at the first time would be a little slow. So It is not included in the test results.
 
 Test results varies according to machine environment
 
