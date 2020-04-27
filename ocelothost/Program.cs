@@ -30,7 +30,7 @@ namespace ocelothost
                {
                    //add your logging
                })
-               .UseIISIntegration()
+               //.UseIISIntegration()
                .Configure(app =>
                {
                    app.UseOcelot().Wait();

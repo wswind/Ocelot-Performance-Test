@@ -2,98 +2,123 @@
 
 this is a demo to test ocelot performance.
 
-use .net core 2.2 sdk and windows 10 1809+ with wsl ubuntu
+use .net core 3.1 sdk and ab(apache benchmark)
 
 inspired by:
 
 <https://www.cnblogs.com/myzony/p/10401298.html>
 
-## use powershell to run all projects:
+## use cmd to run all projects:
 
 ```
-./run-all.ps1
+run.cmd
 ```
 
-you may need to set powershell execution policy first
-
-```
-Set-ExecutionPolicy -Scope CurrentUser remotesigned
-```
 
 | url             | discription |
 | -------------- | ------ |
 | localhost:5000 | ocelot |
 | localhost:5001 | api1 |
-| localhost:5002 | api2 |
 
 
 http://localhost:5000/api1/values -> http://localhost:5001/api/values
 
-http://localhost:5000/api2/values -> http://localhost:5002/api/values
-
-
 
 ## use ab to test
 
-open ubuntu wsl to install ab
+install ab on ubuntu/debian
 
 ```
-sudo apt-get install apache2-utils
+apt install apache2-utils
+```
+
+install ab on centos
+
+```
+yum install httpd-tools -y
+
 ```
 
 test the performance
 
 ```
-ab -n 100000 -c 10 http://localhost:5001/api/values
+ab -n 20000 -c 1000 http://localhost:5001/api/values
 
-Concurrency Level:      10
-Time taken for tests:   28.441 seconds
-Complete requests:      100000
+
+Server Software:        Kestrel
+Server Hostname:        localhost
+Server Port:            5001
+
+Document Path:          /api/values
+Document Length:        19 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   15.410 seconds
+Complete requests:      20000
 Failed requests:        0
-Total transferred:      15800000 bytes
-HTML transferred:       1900000 bytes
-Requests per second:    3516.01 [#/sec] (mean)
-Time per request:       2.844 [ms] (mean)
-Time per request:       0.284 [ms] (mean, across all concurrent requests)
-Transfer rate:          542.51 [Kbytes/sec] received
+Total transferred:      3160000 bytes
+HTML transferred:       380000 bytes
+Requests per second:    1297.83 [#/sec] (mean)
+Time per request:       770.516 [ms] (mean)
+Time per request:       0.771 [ms] (mean, across all concurrent requests)
+Transfer rate:          200.25 [Kbytes/sec] received
 
-ab -n 100000 -c 10 http://localhost:5000/api1/values
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0  358  85.9    364     537
+Processing:    28  404 108.1    391    1324
+Waiting:        7  345 106.1    344     970
+Total:        196  762  75.9    761    1664
 
-Concurrency Level:      10
-Time taken for tests:   34.166 seconds
-Complete requests:      100000
+Percentage of the requests served within a certain time (ms)
+  50%    761
+  66%    769
+  75%    776
+  80%    784
+  90%    850
+  95%    859
+  98%    940
+  99%    958
+ 100%   1664 (longest request)
+
+
+ab -n 20000 -c 1000 http://localhost:5000/api1/values
+
+
+Server Software:        Kestrel
+Server Hostname:        localhost
+Server Port:            5000
+
+Document Path:          /api1/values
+Document Length:        19 bytes
+
+Concurrency Level:      1000
+Time taken for tests:   37.893 seconds
+Complete requests:      20000
 Failed requests:        0
-Total transferred:      17800000 bytes
-HTML transferred:       1900000 bytes
-Requests per second:    2926.88 [#/sec] (mean)
-Time per request:       3.417 [ms] (mean)
-Time per request:       0.342 [ms] (mean, across all concurrent requests)
-Transfer rate:          508.77 [Kbytes/sec] received
+Total transferred:      3560000 bytes
+HTML transferred:       380000 bytes
+Requests per second:    527.80 [#/sec] (mean)
+Time per request:       1894.652 [ms] (mean)
+Time per request:       1.895 [ms] (mean, across all concurrent requests)
+Transfer rate:          91.75 [Kbytes/sec] received
 
-ab -n 100000 -c 10 http://localhost:5002/api/values
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0   67 121.4      5     539
+Processing:   180 1743 770.9   1760    8078
+Waiting:       13 1663 721.7   1735    7660
+Total:        180 1809 723.6   1773    8087
 
-Concurrency Level:      10
-Time taken for tests:   26.775 seconds
-Complete requests:      100000
-Failed requests:        0
-Total transferred:      15800000 bytes
-HTML transferred:       1900000 bytes
-Requests per second:    3734.89 [#/sec] (mean)
-Time per request:       2.677 [ms] (mean)
-Time per request:       0.268 [ms] (mean, across all concurrent requests)
-Transfer rate:          576.28 [Kbytes/sec] received
-
-ab -n 100000 -c 10 http://localhost:5000/api2/values
-
-Concurrency Level:      10
-Time taken for tests:   37.993 seconds
-Complete requests:      100000
-Failed requests:        0
-Total transferred:      17800000 bytes
-HTML transferred:       1900000 bytes
-Requests per second:    2632.09 [#/sec] (mean)
-Time per request:       3.799 [ms] (mean)
-Time per request:       0.380 [ms] (mean, across all concurrent requests)
-Transfer rate:          457.53 [Kbytes/sec] received
+Percentage of the requests served within a certain time (ms)
+  50%   1773
+  66%   1813
+  75%   1846
+  80%   1861
+  90%   2067
+  95%   3140
+  98%   3828
+  99%   5259
+ 100%   8087 (longest request)
 ```
 Test results vary according to machine environment.
