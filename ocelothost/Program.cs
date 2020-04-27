@@ -35,6 +35,7 @@ namespace ocelothost
                {
                    app.UseOcelot().Wait();
                })
+               .UseUrls("http://0.0.0.0:5000")
                .Build()
                .Run();
            }
