@@ -206,6 +206,6 @@ Total:          2  185 609.0     30    3187
 
 
 The ab test with ocelot proxy could be very slow at the first time. But it would be faster and faster when you run it multiple times. So the first time test result is not included.
-
+nginx server is not at the same machine like ocelot does.
 Test results varies according to machine environment
 
