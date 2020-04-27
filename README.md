@@ -9,7 +9,7 @@ use nginx-1.18.0 on windows, configure nginx proxy for compare test:
 ```
 server {
         listen       80;
-        server_name  localhost;
+        server_name  _;
 
         location /api1/ {
             proxy_pass         http://localhost:5001/api/;
@@ -206,7 +206,7 @@ Percentage of the requests served within a certain time (ms)
  100%   3057 (longest request)
 
 ```
-The ab test at the first time would be a little slow. So It is not included in the test results.
+The ab test with ocelot could be very slow at the first time. But it would be faster and faster when you run multi times. So the first time test result is not included.
 
 Test results varies according to machine environment
 
