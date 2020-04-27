@@ -206,15 +206,7 @@ Percentage of the requests served within a certain time (ms)
  100%   3057 (longest request)
 
 ```
-The ab test with ocelot could be very slow at the first time. But it would be faster and faster when you run multi times. So the first time test result is not included.
+The ab test with ocelot or nginx proxy could be slower at the first time. But it would be faster and faster when you run multi times. So the first time test result is not included.
 
 Test results varies according to machine environment
-
-
-
-
-
-
-
-
 
