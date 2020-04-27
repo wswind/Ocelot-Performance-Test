@@ -53,33 +53,33 @@ Document Path:          /api/values
 Document Length:        19 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   15.410 seconds
+Time taken for tests:   15.992 seconds
 Complete requests:      20000
 Failed requests:        0
 Total transferred:      3160000 bytes
 HTML transferred:       380000 bytes
-Requests per second:    1297.83 [#/sec] (mean)
-Time per request:       770.516 [ms] (mean)
-Time per request:       0.771 [ms] (mean, across all concurrent requests)
-Transfer rate:          200.25 [Kbytes/sec] received
+Requests per second:    1250.66 [#/sec] (mean)
+Time per request:       799.575 [ms] (mean)
+Time per request:       0.800 [ms] (mean, across all concurrent requests)
+Transfer rate:          192.97 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0  358  85.9    364     537
-Processing:    28  404 108.1    391    1324
-Waiting:        7  345 106.1    344     970
-Total:        196  762  75.9    761    1664
+Connect:        0  382  49.0    384     533
+Processing:    29  407  80.6    402     782
+Waiting:        4  347  69.8    353     532
+Total:        174  789  81.8    784    1139
 
 Percentage of the requests served within a certain time (ms)
-  50%    761
-  66%    769
-  75%    776
-  80%    784
-  90%    850
-  95%    859
-  98%    940
-  99%    958
- 100%   1664 (longest request)
+  50%    784
+  66%    802
+  75%    815
+  80%    822
+  90%    836
+  95%    887
+  98%   1071
+  99%   1121
+ 100%   1139 (longest request)
 
 
 ab -n 20000 -c 1000 http://localhost:5000/api1/values
@@ -93,32 +93,32 @@ Document Path:          /api1/values
 Document Length:        19 bytes
 
 Concurrency Level:      1000
-Time taken for tests:   37.893 seconds
+Time taken for tests:   40.206 seconds
 Complete requests:      20000
 Failed requests:        0
 Total transferred:      3560000 bytes
 HTML transferred:       380000 bytes
-Requests per second:    527.80 [#/sec] (mean)
-Time per request:       1894.652 [ms] (mean)
-Time per request:       1.895 [ms] (mean, across all concurrent requests)
-Transfer rate:          91.75 [Kbytes/sec] received
+Requests per second:    497.44 [#/sec] (mean)
+Time per request:       2010.278 [ms] (mean)
+Time per request:       2.010 [ms] (mean, across all concurrent requests)
+Transfer rate:          86.47 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
-Connect:        0   67 121.4      5     539
-Processing:   180 1743 770.9   1760    8078
-Waiting:       13 1663 721.7   1735    7660
-Total:        180 1809 723.6   1773    8087
+Connect:        0   40  88.4      4     517
+Processing:   250 1910 429.2   1949    5421
+Waiting:      173 1851 413.0   1926    5266
+Total:        345 1950 406.6   1955    5549
 
 Percentage of the requests served within a certain time (ms)
-  50%   1773
-  66%   1813
-  75%   1846
-  80%   1861
-  90%   2067
-  95%   3140
-  98%   3828
-  99%   5259
- 100%   8087 (longest request)
+  50%   1955
+  66%   1987
+  75%   2008
+  80%   2019
+  90%   2050
+  95%   2353
+  98%   3574
+  99%   3643
+ 100%   5549 (longest request)
 ```
 Test results vary according to machine environment.
