@@ -24,6 +24,18 @@ server {
     }
 ```
 
+set centos file limits
+```
+ulimit -n 65535
+
+#/etc/security/limits.conf
+
+* soft nofile 65535
+* hard nofile 65535
+```
+
+
+
 Debian wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
 
 I still use windows to host all the services
