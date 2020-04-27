@@ -2,15 +2,9 @@
 
 this is a demo to test ocelot performance.
 
-use .net core 3.1 sdk for server host
+use .net core 3.1 sdk
 
-debian wsl for nginx proxy test has an error:
-apr_socket_recv: Transport endpoint is not connected (107)
-so I changed to use a vm to run the tests.
-
-I still use windows to host all the services
-
-use nginx-1.18.0 on windows, configure nginx proxy:
+use nginx-1.18.0 on windows, configure nginx proxy for compare test:
 
 ```
 server {
@@ -29,6 +23,12 @@ server {
         }
     }
 ```
+
+Debian wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
+
+I still use windows to host all the services
+
+
 inspired by:
 
 <https://www.cnblogs.com/myzony/p/10401298.html>
@@ -196,8 +196,6 @@ Percentage of the requests served within a certain time (ms)
 ```
 
 Test results vary according to machine environment.
-
-
 
 
 
