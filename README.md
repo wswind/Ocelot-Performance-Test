@@ -2,19 +2,22 @@
 
 this is a demo to test ocelot performance.
 
+inspired by:
+
+<https://www.cnblogs.com/myzony/p/10401298.html>
+
 use .net core 3.1 sdk
 
 use apache bench for load test 
 
 wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
 
-host ip : 192.168.56.1
+dev machine ip : 192.168.56.1
 vm ip : 192.168.56.10
 
+ocelot and api server are hosted on the dev machine
+nginx is hosted on vm and proxy to the dev machine, this may influence it's performance.
 
-inspired by:
-
-<https://www.cnblogs.com/myzony/p/10401298.html>
 
 ## use cmd to run all projects:
 
@@ -33,6 +36,8 @@ run.cmd
 http://192.168.56.1:5000/api1/values -> http://192.168.56.1:5001/api/values
 
 http://192.168.56.10:5010/api1/values -> http://192.168.56.1:5001/api/values
+
+
 
 ## use ab to test
 
@@ -56,6 +61,8 @@ ab -n 20000 -c 1000 http://192.168.56.1:5000/api1/values
 #nginx
 ab -n 20000 -c 1000 http://192.168.56.10:5010/api1/values
 ```
+
+
 
 
 ## without proxy test result
@@ -206,6 +213,6 @@ Total:          2  185 609.0     30    3187
 
 
 The ab test with ocelot proxy could be very slow at the first time. But it would be faster and faster when you run it multiple times. So the first time test result is not included.
-nginx server is not at the same machine like ocelot does.
+
 Test results varies according to machine environment
 
