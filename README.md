@@ -8,7 +8,7 @@ inspired by:
 
 use .net core 3.1 sdk
 
-use apache bench for load test 
+use apache benchmark for load test 
 
 wsl for nginx proxy test has an error: apr_socket_recv: Transport endpoint is not connected (107) . So I changed to use a linux vm to run the tests.
 
